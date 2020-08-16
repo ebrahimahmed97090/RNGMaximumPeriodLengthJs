@@ -1,0 +1,119 @@
+<div class="row no-gutters">
+  <div class="col-12">
+    <form action="">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <div class="input-group flex-nowrap p-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping">A</span>
+            </div>
+            <input
+              [(ngModel)]="a"
+              type="number"
+              class="form-control"
+              name="a"
+              aria-label="Username"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-6">
+          <div class="input-group flex-nowrap p-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping">M</span>
+            </div>
+            <input
+              type="number"
+              [(ngModel)]="m"
+              class="form-control"
+              name="m"
+              aria-label="Username"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-group flex-nowrap p-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping">Power?</span>
+            </div>
+            <input
+              type="number"
+              [(ngModel)]="pw"
+              class="form-control"
+              (blur)="pww()"
+              name="pw"
+              aria-label="Username"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-12">
+          <div class="input-group flex-nowrap p-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping">C</span>
+            </div>
+            <input
+              type="number"
+              [(ngModel)]="c"
+              name="c"
+              class="form-control"
+              aria-label="Username"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-12">
+          <div class="input-group flex-nowrap p-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping"
+                >X<sub>o</sub></span
+              >
+            </div>
+            <input
+              (blur)="maxln()"
+              name="x"
+              [(ngModel)]="x"
+              placeholder="1"
+              type="number"
+              class="form-control"
+              aria-label="Username"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row no-gutters">
+  <div class="col-12 p-3">
+    <ul class="list-group list-group">
+      <li *ngFor="let list of lists; let i = index" class="list-group-item">
+        <h1 *ngIf="ln">
+          Period Length is
+          <span class="badge badge-secondary">{{ lens[i] }} </span>
+          <span
+            *ngIf="lens[i].eq(ma)
+            ||lens[i].eq(m); else elseTemplate"
+            class="badge badge-pill badge-success"
+            >Max</span
+          >
+          <ng-template #elseTemplate
+            ><span class="badge badge-pill badge-danger">NotMax</span>
+          </ng-template>
+        </h1>
+        <span>X<sub>o</sub>{{ xos[i] }}</span>
+        <ul class="list-group list-group-horizontal-sm d-flex flex-wrap">
+          <li class="list-group-item" *ngFor="let item of list">{{ item }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
